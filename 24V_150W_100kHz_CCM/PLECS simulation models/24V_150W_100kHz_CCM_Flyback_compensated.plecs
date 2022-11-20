@@ -46,7 +46,7 @@ Plecs {
   Schematic {
     Location      [3, 31; 1275, 636]
     ZoomFactor    1
-    SliderPosition [0, -1]
+    SliderPosition [0, 142]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1895,6 +1895,101 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Scope
+      Name          "Scope2"
+      Show          on
+      Position      [435, 625]
+      Direction     up
+      Flipped       off
+      Location      [0, 23; 1280, 660]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAnfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABpAP///wAAB4AAAAL2AAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL+AMAAAAHAAAAB"
+"gAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAADAAAAlgAAAAgAAACWAAAACQAAAJYAAAeAAA"
+"AACwEAAAEAAAAAAAAAAAAAAACW/////wAAAIEAAAAAAAAACwAAAFcAAAABAAAAAAAAAJYAAAABAAA"
+"AAAAAAJYAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAB"
+"AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAABf0AAAABAAAAAAAAA+gA"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          "Ip"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Is"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Ip"
+      Show          on
+      Position      [350, 620]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Is"
+      Show          on
+      Position      [350, 670]
+      Direction     right
+      Flipped       off
+    }
     Connection {
       Type          Wire
       SrcComponent  "R2"
@@ -2375,6 +2470,21 @@ Plecs {
       DstComponent  "Saturation"
       DstTerminal   1
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Ip"
+      SrcTerminal   1
+      DstComponent  "Scope2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Is"
+      SrcTerminal   1
+      Points        [390, 670; 390, 630]
+      DstComponent  "Scope2"
+      DstTerminal   2
+    }
     Annotation {
       Name          "Max Load: 3.84ohm\nMin Load: 38.4ohm\n\nVout = 24V\nPo_ma"
 "x = 150W"
@@ -2533,6 +2643,22 @@ Plecs {
       Signals       {"Resistor voltage"}
     }
   }
+  ProbeBlock {
+    Tag           "24V_150W_100kHz_CCM_Flyback_compensated/Ip"
+    Probe {
+      Component     "FET1"
+      Path          ""
+      Signals       {"MOSFET current"}
+    }
+  }
+  ProbeBlock {
+    Tag           "24V_150W_100kHz_CCM_Flyback_compensated/Is"
+    Probe {
+      Component     "D1"
+      Path          ""
+      Signals       {"Diode current"}
+    }
+  }
   Analysis {
     Type          ImpulseResponseAnalysis
     Name          "Impulse Response Analysis"
@@ -2579,4 +2705,4 @@ Plecs {
 "opePath, 'HoldTrace', ['Vin = ' mat2str(Vin_vals(ix))]);\nend\n\t"
   }
 }
-DemoSignature "rEIZQchS00CkTiHUqTlro/Enzfl7Bfa7/fcSYdZrcTg="
+DemoSignature "3BnsTO9sjZCKGrJh5LtEUwTq8B8ZaAEsny5OooKvcPc="
