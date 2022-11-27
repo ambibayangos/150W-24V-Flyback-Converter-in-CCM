@@ -24,3 +24,45 @@
 *.fct
 *.tmp
 *.sab
+*.dll
+*.sml
+*.smt
+*.log
+*.sdb
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Eddy.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL743_V1091.Field1068/FieldData
+*.sls
+*.sstr_ac
+*.str_ac
+*.vls
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Eddy.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL743_V1091.Field831/FieldData
+*.fdat
+*.iter
+*.nc_cas
+*.uns_in
+*.uns_out
+*.zinfo
+*.nodemap
+*.resd
+*.prf
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Simplorer.aedtresults/IcepakDesign1.results/DV20_LINK44_V0/fluent-centroid
+*.html
+*.xml
+*.fac
+*.hyd
+*.lin
+*.pnt
+*.sld
+*.his
+*.info
+*.link
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Simplorer.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL523_V2639.Data/postlst
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Simplorer.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL523_V2639.Data/setup
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Simplorer.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL523_V2639.Data/solution
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Simplorer.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV623_SOL523_V2639.Data/totloss
+*.dmg
+*.mti
+*.tls
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Transient_Fourier.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV621_SOL523_V771.Data/postlst
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Transient_Fourier.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV621_SOL523_V771.Data/setup
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Transient_Fourier.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV621_SOL523_V771.Data/solution
+24V_150W_100kHz_CCM/MAXWELL simulation models/ETD44_1.5mm_Transient_Fourier.aedtresults/MAXWELL_ETD44_1.5mm_Transient.results/DV621_SOL523_V771.Data/totloss
