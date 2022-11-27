@@ -1,2 +1,2 @@
-# 150W,24V Flyback Converter in DCM
+# 150W,24V Flyback Converter in CCM
  
