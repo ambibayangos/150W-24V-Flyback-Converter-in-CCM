@@ -1,9 +1,9 @@
 Plecs {
-  Name          "24V_150W_100kHz_CCM_Flyback"
+  Name          "24V_150W_100kHz_CCM_Flyback_Simplified"
   Version       "4.1"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  StopTime      "500e-3"
+  StopTime      "50e-3"
   Timeout       ""
   Solver        "radau"
   MaxStep       "1e-8"
@@ -44,9 +44,9 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 26; 1283, 687]
+    Location      [0, 23; 1280, 641]
     ZoomFactor    1
-    SliderPosition [0, 31]
+    SliderPosition [0, 65]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -122,7 +122,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Switch current"
       Show          on
-      Position      [1075, 395]
+      Position      [1055, 385]
       Direction     right
       Flipped       off
     }
@@ -130,7 +130,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Output voltage"
       Show          on
-      Position      [1075, 310]
+      Position      [1055, 295]
       Direction     right
       Flipped       off
     }
@@ -138,7 +138,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Output current"
       Show          on
-      Position      [1075, 350]
+      Position      [1055, 345]
       Direction     right
       Flipped       off
     }
@@ -174,7 +174,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Diode current"
       Show          on
-      Position      [1075, 430]
+      Position      [1060, 425]
       Direction     right
       Flipped       off
     }
@@ -195,7 +195,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Gate voltage"
       Show          on
-      Position      [1075, 510]
+      Position      [1060, 510]
       Direction     right
       Flipped       off
     }
@@ -414,205 +414,6 @@ Plecs {
       }
     }
     Component {
-      Type          Constant
-      Name          "v_ref"
-      Show          on
-      Position      [685, 530]
-      Direction     right
-      Flipped       on
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "24"
-        Show          off
-      }
-    }
-    Component {
-      Type          Sum
-      Name          "Sum"
-      Show          off
-      Position      [635, 530]
-      Direction     down
-      Flipped       on
-      Parameter {
-        Variable      "IconShape"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "Inputs"
-        Value         "|+-"
-        Show          off
-      }
-    }
-    Component {
-      Type          Gain
-      Name          "K_P"
-      Show          on
-      Position      [555, 530]
-      Direction     right
-      Flipped       on
-      Parameter {
-        Variable      "K"
-        Value         "1"
-        Show          on
-      }
-      Parameter {
-        Variable      "Multiplication"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Gain
-      Name          "K_I"
-      Show          on
-      Position      [580, 585]
-      Direction     right
-      Flipped       on
-      Parameter {
-        Variable      "K"
-        Value         "20"
-        Show          on
-      }
-      Parameter {
-        Variable      "Multiplication"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Integrator
-      Name          "Integrator"
-      Show          off
-      Position      [520, 585]
-      Direction     right
-      Flipped       on
-      Parameter {
-        Variable      "ExternalReset"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "InitialConditionSource"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ShowStatePort"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "UpperLimit"
-        Value         "inf"
-        Show          off
-      }
-      Parameter {
-        Variable      "LowerLimit"
-        Value         "-inf"
-        Show          off
-      }
-    }
-    Component {
-      Type          Sum
-      Name          "Sum1"
-      Show          off
-      Position      [490, 530]
-      Direction     down
-      Flipped       on
-      Parameter {
-        Variable      "IconShape"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "Inputs"
-        Value         "|++"
-        Show          off
-      }
-    }
-    Component {
-      Type          Saturation
-      Name          "Saturation"
-      Show          off
-      Position      [440, 530]
-      Direction     right
-      Flipped       on
-      Parameter {
-        Variable      "UpperLimit"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "LowerLimit"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          PlecsProbe
-      Name          "V_sense"
-      Show          on
-      Position      [690, 590]
-      Direction     right
-      Flipped       on
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Modulators/Peak Current\\nController"
-      Name          "Peak Current\nController"
-      Show          on
-      Position      [380, 520]
-      Direction     down
-      Flipped       on
-      Frame         [-20, -20; 20, 20]
-      LabelPosition [0, 23]
-      LabelAlign    up
-      Parameter {
-        Variable      "fs"
-        Value         "100e3"
-        Show          off
-      }
-      Parameter {
-        Variable      "dmin"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "dmax"
-        Value         "99"
-        Show          off
-      }
-      Parameter {
-        Variable      "Islope"
-        Value         "0"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-20, -10]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-20, 10]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [24, 0]
-        Direction     right
-      }
-    }
-    Component {
       Type          Resistor
       Name          "R3"
       Show          off
@@ -626,36 +427,10 @@ Plecs {
       }
     }
     Component {
-      Type          Gain
-      Name          "K_P1"
-      Show          on
-      Position      [470, 455]
-      Direction     right
-      Flipped       on
-      Parameter {
-        Variable      "K"
-        Value         "312.5"
-        Show          off
-      }
-      Parameter {
-        Variable      "Multiplication"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          PlecsProbe
-      Name          "I_sense"
-      Show          on
-      Position      [565, 455]
-      Direction     right
-      Flipped       on
-    }
-    Component {
       Type          PlecsProbe
       Name          "Capacitor current"
       Show          on
-      Position      [1075, 470]
+      Position      [1060, 465]
       Direction     right
       Flipped       off
     }
@@ -663,7 +438,7 @@ Plecs {
       Type          Scope
       Name          "main_scope"
       Show          on
-      Position      [1205, 410]
+      Position      [1220, 335]
       Direction     up
       Flipped       off
       Location      [0, 26; 1280, 663]
@@ -674,7 +449,7 @@ Plecs {
 "AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAMQAAAAFAAAAxAAAAAYAAADFAAAABwAAAMQAAAABAAAAxQAAAAIAAADEAAAAAwAAAMQAAAAIAA"
+"gAAAMUAAAAHAAAAxAAAAAQAAADEAAAABQAAAMQAAAACAAAAxAAAAAMAAADEAAAAAQAAAMUAAAAIAA"
 "AAxAAAAAkAAADEAAADNgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADcAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -893,7 +668,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Output Power"
       Show          on
-      Position      [1075, 550]
+      Position      [1060, 550]
       Direction     right
       Flipped       off
     }
@@ -901,7 +676,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Input Power"
       Show          on
-      Position      [1075, 600]
+      Position      [1060, 600]
       Direction     right
       Flipped       off
     }
@@ -935,7 +710,7 @@ Plecs {
       Type          Scope
       Name          "Output Scope"
       Show          on
-      Position      [985, 125]
+      Position      [990, 50]
       Direction     up
       Flipped       off
       Location      [0, 26; 1280, 663]
@@ -946,11 +721,12 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL+AMAAAAHAAAAB"
-"QAAAJYAAAAEAAAAlgAAAAcAAACWAAAABgAAAJYAAAADAAAAlgAAAAkAAACWAAAACAAAAJYAAAeAAA"
-"AACwEAAAEAAAAAAAAAAAAAAACW/////wAAAIEAAAAAAAAACwAAAMYAAAABAAAAAAAAAJYAAAABAAA"
-"AAAAAAJYAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAB"
-"AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAABY4AAAABAAAAAAAAA+gA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"gAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAACAAAAlgAAAAMAAACWAAAAAQAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAAHgAAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADGAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"Aa6AAAAAQAAAAAAAAPoAA=="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -1014,7 +790,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Output voltage1"
       Show          on
-      Position      [855, 90]
+      Position      [840, 45]
       Direction     right
       Flipped       off
     }
@@ -1022,7 +798,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Output current1"
       Show          on
-      Position      [855, 130]
+      Position      [840, 85]
       Direction     right
       Flipped       off
     }
@@ -1030,22 +806,22 @@ Plecs {
       Type          Scope
       Name          "Current_Scope"
       Show          on
-      Position      [985, 230]
+      Position      [995, 150]
       Direction     up
       Flipped       off
-      Location      [1920, 28; 3840, 1025]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAAC7PwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAANQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMBAAAALwAAAuwAAABmAP///wAAAAMAAAeAAAAA2vw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAABm4AAALsAAAA"
+      Location      [0, 26; 1280, 663]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAELAAACOfwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAASgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMBAAAAQQAAAjkAAACXAP///wAAAAMAAAeAAAABWvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABpAP///wAABm8AAAI5AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAALWAMAAAAFAAAAA"
-"wAAAJYAAAAEAAAAlgAAAAYAAACWAAAACQAAAJYAAAAIAAAAlgAAB4AAAAALAQAAAQAAAAAAAAAAAA"
-"AAAGT/////AAAAgQAAAAAAAAALAAAA2QAAAAEAAAAAAAAAlgAAAAEAAAAAAAAAlgAAAAEAAAAAAAA"
-"AAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAlgAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAlgAAAAEAAAAA"
-"AAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAETwAAAAEAAAAAAAAD6AA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAALMAIAAAADAAAAB"
+"AAAAJYAAAAFAAAAlgAAAAkAAACWAAAHZgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAA"
+"AAAAsAAADZAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAAAAAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAMJAAAAAQAAAAAAAAPoAA=="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -1172,9 +948,9 @@ Plecs {
     }
     Component {
       Type          PlecsProbe
-      Name          "Switch current1"
+      Name          "Switch current2"
       Show          on
-      Position      [855, 195]
+      Position      [845, 175]
       Direction     right
       Flipped       off
     }
@@ -1182,7 +958,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Diode current1"
       Show          on
-      Position      [855, 230]
+      Position      [845, 220]
       Direction     right
       Flipped       off
     }
@@ -1190,7 +966,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Capacitor current1"
       Show          on
-      Position      [855, 270]
+      Position      [845, 265]
       Direction     right
       Flipped       off
     }
@@ -1315,7 +1091,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "V"
-        Value         "Vin"
+        Value         "230*1.1*sqrt(2)"
         Show          off
       }
       Parameter {
@@ -1338,7 +1114,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "540e-6"
+        Value         "Cin"
         Show          on
       }
       Parameter {
@@ -1364,7 +1140,7 @@ Plecs {
       Type          Scope
       Name          "Input Scope"
       Show          on
-      Position      [965, 415]
+      Position      [970, 375]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
@@ -1466,7 +1242,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Rectified"
       Show          on
-      Position      [845, 465]
+      Position      [840, 445]
       Direction     right
       Flipped       off
     }
@@ -1474,7 +1250,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Input current"
       Show          on
-      Position      [845, 415]
+      Position      [840, 405]
       Direction     right
       Flipped       off
     }
@@ -1482,7 +1258,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Input voltage"
       Show          on
-      Position      [845, 365]
+      Position      [840, 365]
       Direction     right
       Flipped       off
     }
@@ -1490,7 +1266,7 @@ Plecs {
       Type          Scope
       Name          "Input current scope"
       Show          on
-      Position      [965, 595]
+      Position      [950, 515]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
@@ -1569,7 +1345,7 @@ Plecs {
       Type          PlecsProbe
       Name          "DC link cap current"
       Show          on
-      Position      [845, 610]
+      Position      [845, 565]
       Direction     right
       Flipped       off
     }
@@ -1577,7 +1353,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Rectifier forward current"
       Show          on
-      Position      [850, 545]
+      Position      [845, 510]
       Direction     right
       Flipped       off
     }
@@ -1585,7 +1361,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Input Power1"
       Show          on
-      Position      [1075, 655]
+      Position      [1060, 635]
       Direction     right
       Flipped       off
     }
@@ -1744,9 +1520,9 @@ Plecs {
     }
     Component {
       Type          PlecsProbe
-      Name          "Output voltage2"
+      Name          "Ouput Voltage"
       Show          on
-      Position      [855, 170]
+      Position      [845, 130]
       Direction     right
       Flipped       off
     }
@@ -1754,200 +1530,9 @@ Plecs {
       Type          PlecsProbe
       Name          "Capacitor current2"
       Show          on
-      Position      [855, 310]
+      Position      [845, 305]
       Direction     right
       Flipped       off
-    }
-    Component {
-      Type          CScript
-      Name          "C-Script"
-      Show          on
-      Position      [170, 485]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "NumInputs"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "NumOutputs"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "NumContStates"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "NumDiscStates"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "NumZCSignals"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "DirectFeedthrough"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Parameters"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "LangStandard"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "RuntimeCheck"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "Declarations"
-        Value         "float vref = 24;\nfloat error = 0;\nint SS_count = 0;"
-        Show          off
-      }
-      Parameter {
-        Variable      "StartFcn"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "OutputFcn"
-        Value         "error = vref - Input(0);\n\nif(error <= 0.3){\nSS_count"
-" = SS_count + 1;\n}\n\nif(SS_count >= 10e6){\nOutput(0) = 1;\n}else{\nOutput("
-"0) = 0;\n}"
-        Show          off
-      }
-      Parameter {
-        Variable      "UpdateFcn"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "DerivativeFcn"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "TerminateFcn"
-        Value         ""
-        Show          off
-      }
-    }
-    Component {
-      Type          PlecsProbe
-      Name          "Probe"
-      Show          on
-      Position      [90, 485]
-      Direction     right
-      Flipped       off
-    }
-    Component {
-      Type          PauseStop
-      Name          "Pause / Stop"
-      Show          on
-      Position      [275, 485]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Action"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Scope"
-      Show          on
-      Position      [255, 555]
-      Direction     up
-      Flipped       off
-      Location      [0, 26; 1280, 663]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4AAAAOZAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAJYAAAAEAAAAlgAAAAcAAACWAAAABgAAAJYAAAABAAAAlgAAAAMAAACWAAAAAgAAAJYAAAAJAA"
-"AAlgAAAAgAAACWAAABAAAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADGAAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAA=="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
-"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-      Axes          "2"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    ""
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
     }
     Component {
       Type          Diode
@@ -2064,77 +1649,185 @@ Plecs {
         }
       }
     }
+    Component {
+      Type          CScript
+      Name          "C-Script"
+      Show          on
+      Position      [195, 520]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "1/100000"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         "#include <stdio.h>\nfloat ki = 0.001;\nfloat kp = 0.001"
+";\nfloat vref = 24;\n\nfloat error = 0;\nfloat prev_integ = 0;\nfloat integ ="
+" 0;\n\nfloat duty = 0;\n\n"
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "if(IsSampleHit(0)){\nerror = vref - Input(0);\nkp = 0.0"
+"01;\nki = 0.001;\n\ninteg = prev_integ + ki*error; \nprev_integ = integ;\ndut"
+"y = kp*error + integ;\n\nif(duty > 1){\nduty = 1;\n}\n\nif(duty < 0){\nduty ="
+" 0.05;\n}\n\nOutput(0) = duty;\n}\n\n"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Vo"
+      Show          on
+      Position      [95, 520]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Modulators/Peak Current\\nController"
+      Name          "Peak Current\nController"
+      Show          on
+      Position      [295, 430]
+      Direction     up
+      Flipped       off
+      Frame         [-20, -20; 20, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "fs"
+        Value         "50e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "dmin"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "dmax"
+        Value         "99"
+        Show          off
+      }
+      Parameter {
+        Variable      "Islope"
+        Value         "0"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-20, -10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-20, 10]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [24, 0]
+        Direction     right
+      }
+    }
+    Component {
+      Type          Gain
+      Name          "Gain"
+      Show          on
+      Position      [225, 420]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "K"
+        Value         "200"
+        Show          on
+      }
+      Parameter {
+        Variable      "Multiplication"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Rs"
+      Show          on
+      Position      [155, 420]
+      Direction     right
+      Flipped       off
+    }
     Connection {
       Type          Wire
       SrcComponent  "R2"
       SrcTerminal   1
       DstComponent  "C1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "v_ref"
-      SrcTerminal   1
-      DstComponent  "Sum"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "K_I"
-      SrcTerminal   2
-      DstComponent  "Integrator"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "K_P"
-      SrcTerminal   2
-      DstComponent  "Sum1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Integrator"
-      SrcTerminal   2
-      Points        [490, 585]
-      DstComponent  "Sum1"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Sum1"
-      SrcTerminal   1
-      DstComponent  "Saturation"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "V_sense"
-      SrcTerminal   1
-      Points        [635, 590]
-      DstComponent  "Sum"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Sum"
-      SrcTerminal   1
-      Points        [585, 530]
-      Branch {
-        Points        [610, 530]
-        DstComponent  "K_I"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "K_P"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Saturation"
-      SrcTerminal   2
-      DstComponent  "Peak Current\nController"
       DstTerminal   2
     }
     Connection {
@@ -2146,24 +1839,8 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "K_P1"
-      SrcTerminal   2
-      Points        [425, 455; 425, 510]
-      DstComponent  "Peak Current\nController"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "I_sense"
-      SrcTerminal   1
-      DstComponent  "K_P1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Output voltage"
       SrcTerminal   1
-      Points        [1135, 310; 1135, 370]
       DstComponent  "main_scope"
       DstTerminal   1
     }
@@ -2171,7 +1848,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Output current"
       SrcTerminal   1
-      Points        [1120, 350; 1120, 380]
+      Points        [1095, 345; 1095, 305]
       DstComponent  "main_scope"
       DstTerminal   2
     }
@@ -2179,7 +1856,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Switch current"
       SrcTerminal   1
-      Points        [1135, 395; 1135, 390]
+      Points        [1105, 385; 1105, 315]
       DstComponent  "main_scope"
       DstTerminal   3
     }
@@ -2187,7 +1864,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Diode current"
       SrcTerminal   1
-      Points        [1120, 430; 1120, 400]
+      Points        [1115, 425; 1115, 325]
       DstComponent  "main_scope"
       DstTerminal   4
     }
@@ -2195,7 +1872,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Capacitor current"
       SrcTerminal   1
-      Points        [1135, 470; 1135, 410]
+      Points        [1125, 465; 1125, 335]
       DstComponent  "main_scope"
       DstTerminal   5
     }
@@ -2203,7 +1880,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Gate voltage"
       SrcTerminal   1
-      Points        [1145, 510; 1145, 420]
+      Points        [1130, 510; 1130, 345]
       DstComponent  "main_scope"
       DstTerminal   6
     }
@@ -2211,7 +1888,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Output Power"
       SrcTerminal   1
-      Points        [1135, 550; 1135, 430]
+      Points        [1135, 550; 1135, 355]
       DstComponent  "main_scope"
       DstTerminal   7
     }
@@ -2219,7 +1896,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Input Power"
       SrcTerminal   1
-      Points        [1135, 600; 1135, 440]
+      Points        [1145, 600; 1145, 365]
       DstComponent  "main_scope"
       DstTerminal   8
     }
@@ -2278,7 +1955,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Output voltage1"
       SrcTerminal   1
-      Points        [915, 90; 915, 120]
       DstComponent  "Output Scope"
       DstTerminal   1
     }
@@ -2286,14 +1962,15 @@ Plecs {
       Type          Signal
       SrcComponent  "Output current1"
       SrcTerminal   1
+      Points        [910, 85; 910, 55]
       DstComponent  "Output Scope"
       DstTerminal   2
     }
     Connection {
       Type          Signal
-      SrcComponent  "Switch current1"
+      SrcComponent  "Switch current2"
       SrcTerminal   1
-      Points        [915, 195; 915, 220]
+      Points        [890, 175; 890, 140]
       DstComponent  "Current_Scope"
       DstTerminal   2
     }
@@ -2301,6 +1978,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Diode current1"
       SrcTerminal   1
+      Points        [900, 220; 900, 150]
       DstComponent  "Current_Scope"
       DstTerminal   3
     }
@@ -2308,7 +1986,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Capacitor current1"
       SrcTerminal   1
-      Points        [915, 270; 915, 240]
+      Points        [910, 265; 910, 160]
       DstComponent  "Current_Scope"
       DstTerminal   4
     }
@@ -2388,7 +2066,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Rectified"
       SrcTerminal   1
-      Points        [905, 465; 905, 425]
+      Points        [900, 445; 900, 385]
       DstComponent  "Input Scope"
       DstTerminal   3
     }
@@ -2396,6 +2074,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Input current"
       SrcTerminal   1
+      Points        [885, 405; 885, 375]
       DstComponent  "Input Scope"
       DstTerminal   2
     }
@@ -2403,7 +2082,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Input voltage"
       SrcTerminal   1
-      Points        [905, 365; 905, 405]
       DstComponent  "Input Scope"
       DstTerminal   1
     }
@@ -2411,7 +2089,7 @@ Plecs {
       Type          Signal
       SrcComponent  "DC link cap current"
       SrcTerminal   1
-      Points        [905, 610; 905, 600]
+      Points        [900, 565; 900, 520]
       DstComponent  "Input current scope"
       DstTerminal   2
     }
@@ -2419,7 +2097,6 @@ Plecs {
       Type          Signal
       SrcComponent  "Rectifier forward current"
       SrcTerminal   1
-      Points        [910, 545; 910, 590]
       DstComponent  "Input current scope"
       DstTerminal   1
     }
@@ -2442,17 +2119,9 @@ Plecs {
       Type          Signal
       SrcComponent  "Input Power1"
       SrcTerminal   1
-      Points        [1135, 655; 1135, 450]
+      Points        [1155, 635; 1155, 375]
       DstComponent  "main_scope"
       DstTerminal   9
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Peak Current\nController"
-      SrcTerminal   3
-      Points        [355, 295]
-      DstComponent  "FET1"
-      DstTerminal   3
     }
     Connection {
       Type          Signal
@@ -2479,9 +2148,8 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Output voltage2"
+      SrcComponent  "Ouput Voltage"
       SrcTerminal   1
-      Points        [915, 170; 915, 210]
       DstComponent  "Current_Scope"
       DstTerminal   1
     }
@@ -2489,39 +2157,9 @@ Plecs {
       Type          Signal
       SrcComponent  "Capacitor current2"
       SrcTerminal   1
-      Points        [930, 310; 930, 250]
+      Points        [930, 305; 930, 170]
       DstComponent  "Current_Scope"
       DstTerminal   5
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "C-Script"
-      SrcTerminal   2
-      Points        [215, 485]
-      Branch {
-        DstComponent  "Pause / Stop"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [215, 550]
-        DstComponent  "Scope"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Probe"
-      SrcTerminal   1
-      Points        [125, 485]
-      Branch {
-        DstComponent  "C-Script"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [125, 560]
-        DstComponent  "Scope"
-        DstTerminal   2
-      }
     }
     Connection {
       Type          Wire
@@ -2611,14 +2249,47 @@ Plecs {
         DstTerminal   1
       }
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vo"
+      SrcTerminal   1
+      DstComponent  "C-Script"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Peak Current\nController"
+      SrcTerminal   3
+      Points        [365, 430]
+      DstComponent  "FET1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "C-Script"
+      SrcTerminal   2
+      Points        [245, 520; 245, 440]
+      DstComponent  "Peak Current\nController"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Gain"
+      SrcTerminal   2
+      DstComponent  "Peak Current\nController"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Rs"
+      SrcTerminal   1
+      DstComponent  "Gain"
+      DstTerminal   1
+    }
     Annotation {
       Name          "Max Load: 3.84ohm\nMin Load: 38.4ohm\n\nVout = 24V\nPo_ma"
 "x = 150W"
       Position      [1120, 95]
-    } 
-    Annotation {
-      Name          "Current Limit set @ 3.2A"
-      Position      [525, 425]
     } 
     Annotation {
       Name          "Aux load = 2W"
@@ -2626,7 +2297,7 @@ Plecs {
     } 
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Switch current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Switch current"
     Probe {
       Component     "FET1"
       Path          ""
@@ -2634,7 +2305,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output voltage"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Output voltage"
     Probe {
       Component     "R7"
       Path          ""
@@ -2642,7 +2313,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Output current"
     Probe {
       Component     "R7"
       Path          ""
@@ -2650,7 +2321,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Diode current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Diode current"
     Probe {
       Component     "D1"
       Path          ""
@@ -2658,7 +2329,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Gate voltage"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Gate voltage"
     Probe {
       Component     "FET1"
       Path          ""
@@ -2666,23 +2337,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/V_sense"
-    Probe {
-      Component     "R7"
-      Path          ""
-      Signals       {"Resistor voltage"}
-    }
-  }
-  ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/I_sense"
-    Probe {
-      Component     "R3"
-      Path          ""
-      Signals       {"Resistor voltage"}
-    }
-  }
-  ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Capacitor current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Capacitor current"
     Probe {
       Component     "C1"
       Path          ""
@@ -2690,7 +2345,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output Power"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Output Power"
     Probe {
       Component     "R7"
       Path          ""
@@ -2698,7 +2353,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input Power"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input Power"
     Probe {
       Component     "V_ac"
       Path          ""
@@ -2706,7 +2361,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output voltage1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Output voltage1"
     Probe {
       Component     "R7"
       Path          ""
@@ -2714,7 +2369,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output current1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Output current1"
     Probe {
       Component     "R7"
       Path          ""
@@ -2722,7 +2377,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Switch current1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Switch current2"
     Probe {
       Component     "FET1"
       Path          ""
@@ -2730,7 +2385,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Diode current1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Diode current1"
     Probe {
       Component     "D1"
       Path          ""
@@ -2738,7 +2393,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Capacitor current1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Capacitor current1"
     Probe {
       Component     "C1"
       Path          ""
@@ -2746,7 +2401,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input current"
     Probe {
       Component     "V_ac"
       Path          ""
@@ -2754,7 +2409,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input voltage"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input voltage"
     Probe {
       Component     "V_ac"
       Path          ""
@@ -2762,7 +2417,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/DC link cap current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/DC link cap current"
     Probe {
       Component     "C2"
       Path          ""
@@ -2770,7 +2425,8 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Rectifier forward current"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Rectifier forward cu"
+"rrent"
     Probe {
       Component     "D5"
       Path          ""
@@ -2778,7 +2434,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input Power1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input Power1"
     Probe {
       Component     "V_ac"
       Path          ""
@@ -2786,7 +2442,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input current1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input current1"
     Probe {
       Component     "D5"
       Path          ""
@@ -2794,7 +2450,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Input voltage1"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Input voltage1"
     Probe {
       Component     "V_ac"
       Path          ""
@@ -2802,7 +2458,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Output voltage2"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Ouput Voltage"
     Probe {
       Component     "R7"
       Path          ""
@@ -2810,7 +2466,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Capacitor current2"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Capacitor current2"
     Probe {
       Component     "C2"
       Path          ""
@@ -2818,9 +2474,17 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "24V_150W_100kHz_CCM_Flyback/Probe"
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Vo"
     Probe {
       Component     "R7"
+      Path          ""
+      Signals       {"Resistor voltage"}
+    }
+  }
+  ProbeBlock {
+    Tag           "24V_150W_100kHz_CCM_Flyback_Simplified/Rs"
+    Probe {
+      Component     "R3"
       Path          ""
       Signals       {"Resistor voltage"}
     }
@@ -2863,12 +2527,13 @@ Plecs {
   }
   Script {
     Name          "Vin_Sweep"
-    Script        "mdl = plecs('get', '', 'CurrentCircuit');\n\nscopePath = [m"
-"dl '/main_scope'];\n\nvin_struct = struct('Vin', 1);\nvar_struct = struct('Mo"
-"delVars',vin_struct);\n\n\nplecs('scope', scopePath , 'ClearTraces');\n\nVin_"
-"vals = [292.74, 341.53];\n\nfor ix = 1:length(Vin_vals)\n\tvar_struct.ModelVa"
-"rs.Vin = Vin_vals(ix);\n\tplecs('simulate', var_struct);\n\tplecs('scope', sc"
-"opePath, 'HoldTrace', ['Vin = ' mat2str(Vin_vals(ix))]);\nend\n\t"
+    Script        "mdl = plecs('get', '', 'CurrentCircuit');\n\n%scopePath = ["
+"mdl '/main_scope'];\nscopePath = [mdl '/Current_Scope'];\n\nCin = struct('Cin"
+"', 50e-6);\nparams = struct('ModelVars',Cin);\n\n\nplecs('scope', scopePath ,"
+" 'ClearTraces');\n\nCin_vals = 1e-6*[50,150,250,350,450,550,650,750];\n\nfor "
+"i = 1:length(Cin_vals)\n\tparams.ModelVars.Cin = Cin_vals(i);\n\tplecs('simul"
+"ate', params);\n\tplecs('scope', scopePath, 'HoldTrace', ['Vin = ' mat2str(Ci"
+"n_vals(i)*1e6)]);\nend\n\t"
   }
 }
-DemoSignature "gu26ELhMF4YRfqq8rrhv83+4d5daVffmu0gViSWAXf4="
+DemoSignature "aNiCziquRzjRdq6X/SZc40Eer/xXLLUbtdTTpR12Ic4="
