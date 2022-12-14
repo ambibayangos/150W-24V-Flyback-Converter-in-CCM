@@ -1,0 +1,706 @@
+********************************************************************************
+**	Cree SiC Schottky Diode C3D Family Spice Model Library
+**      v2.5
+**	02/15/2018
+********************************************************************************
+**	Terms:
+**	
+**	By using this SPICE Model (a "Model") from Cree, Inc. ("Cree"), you on 
+**	behalf of your organization (or you personally, if you are requesting the 
+**	model for personal use) agree to the following conditions of its use:
+**	
+**	1. The Model, or any portion of the Model, is for your own use and may not 
+**	be distributed outside your organization (or to any other person or company,
+**	if you are acquiring the Model for personal use);
+**	
+**	2. You may use the Model only for the purpose of evaluating the performance 
+**	of Cree products in proposed circuits;
+**	
+**	3. The Model is provided “AS IS”, and Cree disclaims any warranty either 
+**	express or implied in connection with the Model, including but not limited 
+**	to any warranty
+**	
+**	4. In no event, will Cree be liable for any damages arising from the use 
+**	of the Model, regardless of the legal theory or any prior knowledge of Cree;
+**	
+**	5. Cree retains all copyrights and other intellectual property rights in 
+**	the Model. 
+**	
+********************************************************************************
+********************************************************************************
+**	Notes:
+**	1.  The model is designed to be accurate over the ranges presented in the
+**	    corresponding datasheet typical characteristic curves.
+**	2.  The model is valid over the 25C to 175C temperature range.
+**	3.  Reverse leakage currents are modeled as a breakdown voltage at 250uA.
+**	    No low current detail is provided.
+**	4.  The surge response of the PiN structure is not included in this 
+**          version.
+**	5.  Recombination current is assumed to be zero.
+**	6.  Currently, the model is electrical only. No thermal model is included.
+**	7.  LT Spice users: please note that a LTSpice symbol library is also 
+**	    available. Please refer to the file "Cree_C4D_CPW4_LTSPICE_Symbols.zip" 
+**	    for further details.
+**	8.  PSpice users: please note that a PSpice symbol library is also 
+**	    available. Please refer to the file "Wolfspeed C3D package Schottky diode.OLB" 
+**	    for further details.
+**********************************************************************************
+********************************************************************************
+**	Release 2.0 notes
+**	1.  Added all TO-247-3 packages
+**	2.  Added 8A and 10A versions of TO-220-Isolated
+**	3.  Added 4A TO-252 DPAK models
+**	4.  All new models for C3D and CPW3 1700V bare die and TO-247-2  
+**       
+**	Release 2.1 notes
+**	1.  New models for C3D16065A and C3D30065D
+**
+**	Release 2.2 notes
+**	1.  New C3D12065A diode model
+**
+**	Release 2.3 notes
+**	1.  Fixed reference error in C3D04060E and C3D04065E models
+**
+**	Release 2.4 notes
+**	1.  New C3D 2A models for TO-220 and TO-252 packages
+**	2.  New C3D TO-220F models
+**
+**	Release 2.5 notes
+**	1.  New C3D 3A models for TO-220 and TO-252 packages
+**	
+********************************************************************************
+
+********************************************************************************
+**	Discrete Diodes
+********************************************************************************
+********************************************************************************
+**	TO-220-2 package
+********************************************************************************
+
+.subckt C3D02060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S002B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D03060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S003B
+L_cathode	K	Case	6.5n
+.ends
+
+.subckt C3D04060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S004B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D06060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20600S006B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D08060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20600S008B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D10060A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20600S010B
+L_cathode	K	Case	6.5n
+.ends
+
+.subckt C3D02065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30650S002B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D03065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30650S003B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D04065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30650S004B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D06065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20650S006B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D08065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20650S008B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D10065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20650S010B
+L_cathode	K	Case	6.5n
+.ends
+
+.subckt C3D12065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20650S012B
+L_cathode	K	Case	6.5n
+.ends
+
+.subckt C3D16065A A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20650S016B
+L_cathode	K	Case	6.5n
+.ends
+
+********************************************************************************
+**	TO-252-2 package
+********************************************************************************
+
+.subckt C3D02060E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30600S002B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D03060E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30600S003B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D04060E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30600S004B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D02065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30650S002B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D03065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30650S003B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D04065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW30650S004B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D06065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW20650S006B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D08065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW20650S008B
+L_cathode	K	Case	6n		
+.ends
+
+.subckt C3D10065E A K Case
+L_anode		A	AD	6n
+D1		AD	Case	CPW20650S010B
+L_cathode	K	Case	6n		
+.ends
+
+
+********************************************************************************
+**	TO-220F FulPAK package
+********************************************************************************
+
+.subckt C3D02060F A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S002B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D03060F A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S003B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D04060F A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW30600S004B
+L_cathode	K	Case	6.5n		
+.ends
+
+
+.subckt C3D06060F A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW20600S006B
+L_cathode	K	Case	6.5n		
+.ends
+
+
+********************************************************************************
+**	TO-220-Isolated package
+********************************************************************************
+
+.subckt C3D06065I A K
+L_anode		A	AD	6.5n
+D1		AD	KD	CPW20650S006B
+L_cathode	K	KD	6.5n		
+.ends
+
+.subckt C3D08065I A K
+L_anode		A	AD	6.5n
+D1		AD	KD	CPW20650S008B
+L_cathode	K	KD	6.5n		
+.ends
+
+.subckt C3D10065I A K
+L_anode		A	AD	6.5n
+D1		AD	KD	CPW20650S010B
+L_cathode	K	KD	6.5n		
+.ends
+
+
+********************************************************************************
+**	QFN package
+********************************************************************************
+
+.subckt C3D1P7060Q A K
+L_anode		A	AD	1n
+D1		AD	KD	QFN1P7A600V
+L_cathode	K	KD	0.1n		
+.ends
+
+
+********************************************************************************
+**	TO-247-3 package
+********************************************************************************
+
+.subckt C3D16060D A1 A2 K Case
+L_anode1	A1	AD1	6.5n
+D1		AD1	Case	CPW20600S008B
+L_anode2	A2	AD2	6.5n
+D2		AD2	Case	CPW20600S008B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D16065D A1 A2 K Case
+L_anode1	A1	AD1	6.5n
+D1		AD1	Case	CPW20650S008B
+L_anode2	A2	AD2	6.5n
+D2		AD2	Case	CPW20650S008B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D20060D A1 A2 K Case
+L_anode1	A1	AD1	6.5n
+D1		AD1	Case	CPW20600S010B
+L_anode2	A2	AD2	6.5n
+D2		AD2	Case	CPW20600S010B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D20065D A1 A2 K Case
+L_anode1	A1	AD1	6.5n
+D1		AD1	Case	CPW20650S010B
+L_anode2	A2	AD2	6.5n
+D2		AD2	Case	CPW20650S010B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D30065D A1 A2 K Case
+L_anode1	A1	AD1	6.5n
+D1		AD1	Case	CPW20650S016B
+L_anode2	A2	AD2	6.5n
+D2		AD2	Case	CPW20650S016B
+L_cathode	K	Case	6.5n		
+.ends
+
+
+********************************************************************************
+**	TO-247-2
+********************************************************************************
+
+.subckt C3D10170H A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW31700S010B
+L_cathode	K	Case	6.5n		
+.ends
+
+.subckt C3D25170H A K Case
+L_anode		A	AD	6.5n
+D1		AD	Case	CPW31700S025B
+L_cathode	K	Case	6.5n		
+.ends
+
+********************************************************************************
+
+********************************************************************************
+********************************************************************************
+
+
+********************************************************************************
+**	Die Models
+********************************************************************************
+
+
+.model CPW30600S002B			
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.153344223
++	Eg	=	1.328273985
++	xti	=	0.12
++	Rs	=	0.21
++	trs1	=	0.002966895
++	trs2	=	3.46848E-05
++	Cjo	=	1.90423E-10
++	VJ	=	0.888038868
++	M	=	0.569393913
++	bv	=	1273
++	tbv1	=	-0.000900626
++	tbv2	=	-6.5191E-06
++	tt	=	0
++	)		
+
+
+.model CPW30600S003B			
++	d(		
++	level	=	1
++	Is	=	6.85882E-15
++	N	=	1.123400507
++	Eg	=	1.294339743
++	xti	=	0.1
++	Rs	=	0.166299409
++	trs1	=	0.002670023
++	trs2	=	2.13345E-05
++	Cjo	=	1.77262E-10
++	VJ	=	0.864198191
++	M	=	0.460791939
++	bv	=	1130
++	tbv1	=	0.000288775
++	tbv2	=	-1.34141E-06
++	tt	=	0
++	)		
+
+
+.model CPW30600S004B			
++	d(		
++	level	=	1
++	Is	=	2.49796E-15
++	N	=	1.126333805
++	Eg	=	1.2888239
++	xti	=	0.1
++	Rs	=	0.088875806
++	trs1	=	0.004662561
++	trs2	=	2.83281E-05
++	Cjo	=	2.48015E-10
++	VJ	=	0.868577131
++	M	=	0.470969871
++	bv	=	1080.614854
++	tbv1	=	-0.000242611
++	tbv2	=	-2.51745E-06
++	tt	=	0
++	)		
+		
+		
+
+.model CPW20600S006B			
++	d(		
++	level	=	1
++	Is	=	1.17048E-14
++	N	=	1.130932999
++	Eg	=	1.262228644
++	xti	=	0.1
++	Rs	=	0.08849829
++	trs1	=	0.004535867
++	trs2	=	2.42431E-05
++	Cjo	=	3.18535E-10
++	VJ	=	0.872697641
++	M	=	0.443247191
++	bv	=	1372.496255
++	tbv1	=	-0.000247626
++	tbv2	=	-1.7191E-06
++	tt	=	0
++	)		
+	
+		
+
+.model CPW20600S008B			
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.093344223
++	Eg	=	1.249733985
++	xti	=	0.1
++	Rs	=	0.068225853
++	trs1	=	0.004466895
++	trs2	=	2.26848E-05
++	Cjo	=	4.18421E-10
++	VJ	=	1.060388679
++	M	=	0.458393913
++	bv	=	1312.960068
++	tbv1	=	-0.000247626
++	tbv2	=	-1.7191E-06
++	tt	=	0
++	)		
+	
+
+
+.model CPW20600S010B			
++	d(		
++	level	=	1
++	Is	=	4.53841E-15
++	N	=	1.04536676
++	Eg	=	1.285830992
++	xti	=	0.1
++	Rs	=	0.056127803
++	trs1	=	0.00470343
++	trs2	=	1.99518E-05
++	Cjo	=	4.88E-10
++	VJ	=	1.093475384
++	M	=	0.459244507
++	bv	=	1235.559073
++	tbv1	=	-0.000265384
++	tbv2	=	-1.9975E-06
++	tt	=	0
++	)		
+	
+
+.model CPW30650S002B			
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.153344223
++	Eg	=	1.328273985
++	xti	=	0.12
++	Rs	=	0.21
++	trs1	=	0.002966895
++	trs2	=	3.46848E-05
++	Cjo	=	1.90423E-10
++	VJ	=	0.888038868
++	M	=	0.569393913
++	bv	=	1273
++	tbv1	=	-0.000900626
++	tbv2	=	-6.5191E-06
++	tt	=	0
++	)		
+	
+.model CPW30650S003B			
++	d(		
++	level	=	1
++	Is	=	6.85882E-15
++	N	=	1.123400507
++	Eg	=	1.294339743
++	xti	=	0.1
++	Rs	=	0.166299409
++	trs1	=	0.002670023
++	trs2	=	2.13345E-05
++	Cjo	=	1.77262E-10
++	VJ	=	0.864198191
++	M	=	0.460791939
++	bv	=	1130
++	tbv1	=	0.000288775
++	tbv2	=	-1.34141E-06
++	tt	=	0
++	)
+
+
+.model CPW30650S004B			
++	d(		
++	level	=	1
++	Is	=	2.49796E-15
++	N	=	1.126333805
++	Eg	=	1.2888239
++	xti	=	0.1
++	Rs	=	0.088875806
++	trs1	=	0.004662561
++	trs2	=	2.83281E-05
++	Cjo	=	2.48015E-10
++	VJ	=	0.868577131
++	M	=	0.470969871
++	bv	=	1080.614854
++	tbv1	=	-0.000242611
++	tbv2	=	-2.51745E-06
++	tt	=	0
++	)		
+		
+		
+
+.model CPW20650S006B			
++	d(		
++	level	=	1
++	Is	=	1.17048E-14
++	N	=	1.130932999
++	Eg	=	1.262228644
++	xti	=	0.1
++	Rs	=	0.08849829
++	trs1	=	0.004535867
++	trs2	=	2.42431E-05
++	Cjo	=	3.18535E-10
++	VJ	=	0.872697641
++	M	=	0.443247191
++	bv	=	1372.496255
++	tbv1	=	-0.000247626
++	tbv2	=	-1.7191E-06
++	tt	=	0
++	)		
+	
+		
+
+.model CPW20650S008B			
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.093344223
++	Eg	=	1.249733985
++	xti	=	0.1
++	Rs	=	0.068225853
++	trs1	=	0.004466895
++	trs2	=	2.26848E-05
++	Cjo	=	4.18421E-10
++	VJ	=	1.060388679
++	M	=	0.458393913
++	bv	=	1312.960068
++	tbv1	=	-0.000247626
++	tbv2	=	-1.7191E-06
++	tt	=	0
++	)		
+	
+
+
+.model CPW20650S010B			
++	d(		
++	level	=	1
++	Is	=	4.53841E-15
++	N	=	1.04536676
++	Eg	=	1.285830992
++	xti	=	0.1
++	Rs	=	0.056127803
++	trs1	=	0.00470343
++	trs2	=	1.99518E-05
++	Cjo	=	4.88E-10
++	VJ	=	1.093475384
++	M	=	0.459244507
++	bv	=	1235.559073
++	tbv1	=	-0.000265384
++	tbv2	=	-1.9975E-06
++	tt	=	0
++	)
+
+.model CPW20650S012B			
++	d(		
++	level	=	1
++	Is	=	5.36814E-15
++	N	=	1.09686957
++	Eg	=	1.265522806
++	xti	=	0.1
++	Rs	=	0.044547876
++	trs1	=	0.004307526
++	trs2	=	1.85273E-05
++	Cjo	=	6.7427E-10
++	VJ	=	1.827589257
++	M	=	0.551960331
++	bv	=	1133
++	tbv1	=	0.000274072
++	tbv2	=	-4.64519E-07
++	tt	=	0
++	)		
+
+
+.model CPW20650S016B			
++	d(		
++	level	=	1
++	Is	=	7.53014E-15
++	N	=	1.057577435
++	Eg	=	1.203564096
++	xti	=	0.1
++	Rs	=	0.034727776
++	trs1	=	0.004554701
++	trs2	=	2.17632E-05
++	Cjo	=	9.0898E-10
++	VJ	=	1.36051163
++	M	=	0.497010799
++	bv	=	1183
++	tbv1	=	0.000133469
++	tbv2	=	8.89869E-08
++	tt	=	0
++	)
+
+	
+
+.model QFN1P7A600V
++	d(		
++	level	=	1
++	Is	=	0.000184558
++	N	=	4.862030153
++	Eg	=	1.13186802
++	xti	=	0.1
++	Rs	=	0.151389661
++	trs1	=	0.000133359
++	trs2	=	3.54177E-05
++	Cjo	=	8.72434E-11
++	VJ	=	1.019067917
++	M	=	0.465347201
++	bv	=	1144.142814
++	tbv1	=	-0.000358907
++	tbv2	=	-1.9418E-06
++	tt	=	0
++	)		
+
+
+
+.model CPW31700S010B			
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.083344223
++	Eg	=	1.238273985
++	xti	=	0.1
++	Rs	=	0.075225853
++	trs1	=	0.006466895
++	trs2	=	4.76848E-05
++	Cjo	=	8.68421E-10
++	VJ	=	1.088038868
++	M	=	0.458393913
++	bv	=	3332.332865
++	tbv1	=	-0.000657626
++	tbv2	=	-6.2191E-06
++	tt	=	0
++	)		
+
+
+.model CPW31700S025B						
++	d(		
++	level	=	1
++	Is	=	9.45179E-15
++	N	=	1.053344223
++	Eg	=	1.228273985
++	xti	=	0.1
++	Rs	=	0.032
++	trs1	=	0.006966895
++	trs2	=	4.76848E-05
++	Cjo	=	2.10012E-09
++	VJ	=	1.088038868
++	M	=	0.459393913
++	bv	=	3162.765329
++	tbv1	=	-0.000540626
++	tbv2	=	-2.0191E-06
++	tt	=	0
++	)		
+       
+
+
+
