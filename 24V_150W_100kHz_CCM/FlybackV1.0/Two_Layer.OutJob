@@ -17,11 +17,11 @@ RevisionNamingSchemeGUID=
 [OutputGroup1]
 Name=Two_Layer.OutJob
 Description=
-TargetOutputMedium=Schematics
+TargetOutputMedium=BOM_AND_PICKNPLACE
 VariantName=[No Variations]
 VariantScope=1
 CurrentConfigurationName=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=Print Job
 OutputMedium1_Type=Printer
@@ -64,7 +64,7 @@ OutputName3=Schematic Prints
 OutputCategory3=Documentation
 OutputDocumentPath3=
 OutputVariantName3=
-OutputEnabled3=1
+OutputEnabled3=0
 OutputEnabled3_OutputMedium1=0
 OutputEnabled3_OutputMedium2=0
 OutputEnabled3_OutputMedium3=0
@@ -78,7 +78,7 @@ OutputName4=PCB Prints
 OutputCategory4=Documentation
 OutputDocumentPath4=
 OutputVariantName4=
-OutputEnabled4=1
+OutputEnabled4=0
 OutputEnabled4_OutputMedium1=0
 OutputEnabled4_OutputMedium2=0
 OutputEnabled4_OutputMedium3=0
@@ -139,7 +139,7 @@ OutputName5=PCB 3D Print
 OutputCategory5=Documentation
 OutputDocumentPath5=
 OutputVariantName5=
-OutputEnabled5=1
+OutputEnabled5=0
 OutputEnabled5_OutputMedium1=0
 OutputEnabled5_OutputMedium2=0
 OutputEnabled5_OutputMedium3=0
@@ -153,7 +153,7 @@ OutputName6=Generates pick and place files
 OutputCategory6=Assembly
 OutputDocumentPath6=
 OutputVariantName6=
-OutputEnabled6=0
+OutputEnabled6=1
 OutputEnabled6_OutputMedium1=0
 OutputEnabled6_OutputMedium2=0
 OutputEnabled6_OutputMedium3=1
@@ -166,7 +166,7 @@ OutputName7=Bill of Materials
 OutputCategory7=Report
 OutputDocumentPath7=
 OutputVariantName7=
-OutputEnabled7=0
+OutputEnabled7=1
 OutputEnabled7_OutputMedium1=0
 OutputEnabled7_OutputMedium2=0
 OutputEnabled7_OutputMedium3=2
@@ -182,9 +182,9 @@ Configuration7_Item3=Comment=True|Footprint=True
 Configuration7_Name4=SortOrder
 Configuration7_Item4=Designator=Up|Comment=Up|Footprint=Up
 Configuration7_Name5=VisibleOrder
-Configuration7_Item5=Comment=120|Description=120|Designator=120|JLC#=100|Footprint=120|Quantity=120|LibRef=120
+Configuration7_Item5=Comment=120|Description=120|Designator=120|Part_Number=100|JLC#=100|Footprint=120|Quantity=120|LibRef=120
 Configuration7_Name6=VisibleOrder_Flat
-Configuration7_Item6=Comment=120|Description=120|Designator=120|JLC#=100|Footprint=120|Quantity=120|LibRef=120
+Configuration7_Item6=Comment=120|Description=120|Designator=120|Part_Number=100|JLC#=100|Footprint=120|Quantity=120|LibRef=120
 
 [PublishSettings]
 OutputFilePath2=C:\Users\artur\Desktop\150W-24V-Flyback-Converter-in-CCM\24V_150W_100kHz_CCM\FlybackV1.0\Project Outputs for FlybackV1.0\Gerber\
