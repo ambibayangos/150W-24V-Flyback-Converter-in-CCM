@@ -720,11 +720,12 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAALQAMAAAADAAAAB"
-"gAAAJYAAAAJAAAAlgAAAAgAAACWAAAHZgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAA"
-"AAAAsAAADGAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAAAAQAAAAAAAACWAAA"
-"AAQAAAAAAAACWAAAAAQAAAAAAAAAAAAAAAQAAAAAAAACWAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAMcAAAAAQAAAAAAAAPoAA=="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAJYAAAAFAAAAlgAAAAgAAACWAAAACQAAAJYAAAACAAAAlgAAAAMAAACWAAAAAQAAAJYAAAAGAA"
+"AAlgAAAAcAAACWAAAHZgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADGAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AagAAAAAQAAAAAAAAPoAA=="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -1283,9 +1284,9 @@ Plecs {
 "AVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAABUMAAAOZAAAABAAAAAQAAAAIAAAACPwAAAAB"
 "AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAJYAAAAIAAAAlgAAAAUAAACWAAAABAAAAJYAAAAHAAAAlgAAAAYAAACWAAAAAQAAAJYAAAADAA"
-"AAlgAAAAIAAACWAAACNwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADGAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAJYAAAAFAAAAlgAAAAgAAACWAAAACQAAAJYAAAACAAAAlgAAAAMAAACWAAAAAQAAAJYAAAAGAA"
+"AAlgAAAAcAAACWAAACNwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADGAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AFxAAAAAQAAAAAAAAPoAA=="
@@ -1556,6 +1557,14 @@ Plecs {
         Value         "293"
         Show          off
       }
+    }
+    Component {
+      Type          Voltmeter
+      Name          "Vm3"
+      Show          on
+      Position      [510, 180]
+      Direction     up
+      Flipped       off
     }
     Connection {
       Type          Wire
@@ -1848,8 +1857,15 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        DstComponent  "Tr1"
-        DstTerminal   4
+        Points        [510, 235]
+        Branch {
+          DstComponent  "Tr1"
+          DstTerminal   4
+        }
+        Branch {
+          DstComponent  "Vm3"
+          DstTerminal   2
+        }
       }
     }
     Connection {
@@ -1895,8 +1911,15 @@ Plecs {
       SrcTerminal   1
       Points        [465, 120; 505, 120]
       Branch {
-        DstComponent  "D1"
-        DstTerminal   1
+        Points        [510, 120]
+        Branch {
+          DstComponent  "D1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Vm3"
+          DstTerminal   1
+        }
       }
       Branch {
         Points        [505, 85]
@@ -2043,6 +2066,22 @@ Plecs {
     }
   }
   ProbeBlock {
+    Tag           "24V_150W_100kHz_CCM_DCM_Flyback_Simplified/Input current1"
+    Probe {
+      Component     "Vm3"
+      Path          ""
+      Signals       {"Measured voltage"}
+    }
+  }
+  ProbeBlock {
+    Tag           "24V_150W_100kHz_CCM_DCM_Flyback_Simplified/Input voltage1"
+    Probe {
+      Component     "R1"
+      Path          ""
+      Signals       {"Resistor voltage"}
+    }
+  }
+  ProbeBlock {
     Tag           "24V_150W_100kHz_CCM_DCM_Flyback_Simplified/Ouput Voltage"
     Probe {
       Component     "R7"
@@ -2105,4 +2144,4 @@ Plecs {
 "n_vals(i)*1e6)]);\nend\n\t"
   }
 }
-DemoSignature "2yOTeTyeru1CRKOKmAz1xLXwoQsgTUSBPSZmM64Is4w="
+DemoSignature "40mNQ4aochHLDnk/vN0Eb7+WrX3Q5UzwBBfKxVU2SvM="

@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\artur\Desktop\150W-24V-Flyback-Converter-in-CCM\24V_150W_100kHz_CCM\FlybackV1.0\FlybackV1.0.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=flybackv1.0-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=flybackv1.0-slotholes.txt|DrillLayers=gtl,gbl

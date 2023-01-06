@@ -1,0 +1,13 @@
+DRC Rules Export File for PCB: C:\Users\artur\Desktop\150W-24V-Flyback-Converter-in-CCM\24V_150W_100kHz_CCM\FlybackV1.0\FlybackV1.0.PcbDoc
+RuleKind=ShortCircuit|RuleName=NETTIE_SEC|Scope=Board|Allowed=1
+RuleKind=ShortCircuit|RuleName=NETTIE_PRI|Scope=Board|Allowed=1
+RuleKind=SolderMaskExpansion|RuleName=Via|Scope=Board|Minimum=4.00
+RuleKind=Clearance|RuleName=SecHV_To_SecLV|Scope=Board|Minimum=49.21
+RuleKind=Clearance|RuleName=HVAC_To_HV&LV|Scope=Board|Minimum=33.86
+RuleKind=Clearance|RuleName=PRI_To_SEC|Scope=Board|Minimum=196.85
+RuleKind=Clearance|RuleName=PriLV_To_PriLV|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=PriHV_To_PriLV_Coated|Scope=Board|Minimum=33.86
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=11.81
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
